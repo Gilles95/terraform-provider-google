@@ -86,5 +86,13 @@ If you have other development questions we don't cover, please file an issue!
 
 ```
 docker run --rm -it -v $(pwd):/go/src/github.com/hashicorp/terraform-provider-google -v /Users/gilles.margerie/1_work/go/go_bin:/go/bin amd64/golang:1.14.3 bash
-make fmtcheck && make generate && export GOOS=darwin && export GOARCH=amd64 && go install
+
+# Then within the container:
+
+cd /go/src/github.com/hashicorp/terraform-provider-google && \
+make fmtcheck && \
+make generate && \
+export GOOS=darwin && \
+export GOARCH=amd64 \
+&& go install
 ```
